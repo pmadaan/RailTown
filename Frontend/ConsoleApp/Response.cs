@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackendService
+namespace FrontendCode
 {
     public class Response
     {
@@ -19,4 +19,5 @@ namespace BackendService
         public double distance { get; set; }
        
     }
+
 }

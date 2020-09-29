@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job\\Code\\RailTown\\GeoService\\BackendService\\BackendService.csproj": {}
+    "D:\\Job\\Code\\RailTown\\Frontend\\ConsoleApp\\FrontendCode.csproj": {}
   },
   "projects": {
-    "D:\\Job\\Code\\RailTown\\GeoService\\BackendService\\BackendService.csproj": {
+    "D:\\Job\\Code\\RailTown\\Frontend\\ConsoleApp\\FrontendCode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job\\Code\\RailTown\\GeoService\\BackendService\\BackendService.csproj",
-        "projectName": "BackendService",
-        "projectPath": "D:\\Job\\Code\\RailTown\\GeoService\\BackendService\\BackendService.csproj",
+        "projectUniqueName": "D:\\Job\\Code\\RailTown\\Frontend\\ConsoleApp\\FrontendCode.csproj",
+        "projectName": "FrontendCode",
+        "projectPath": "D:\\Job\\Code\\RailTown\\Frontend\\ConsoleApp\\FrontendCode.csproj",
         "packagesPath": "C:\\Users\\riya1\\.nuget\\packages\\",
-        "outputPath": "D:\\Job\\Code\\RailTown\\GeoService\\BackendService\\obj\\",
+        "outputPath": "D:\\Job\\Code\\RailTown\\Frontend\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\riya1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,9 +58,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

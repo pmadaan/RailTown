@@ -1,0 +1,16 @@
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.exe
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.csprojAssemblyReference.cache
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.AssemblyInfoInputs.cache
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.AssemblyInfo.cs
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.csproj.CopyComplete
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.deps.json
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.runtimeconfig.json
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.runtimeconfig.dev.json
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.dll
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\FrontendCode.pdb
+D:\Job\Code\RailTown\Frontend\ConsoleApp\bin\Debug\netcoreapp3.1\GeoCoordinate.NetCore.dll
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.csproj.CoreCompileInputs.cache
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.dll
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.pdb
+D:\Job\Code\RailTown\Frontend\ConsoleApp\obj\Debug\netcoreapp3.1\FrontendCode.genruntimeconfig.cache

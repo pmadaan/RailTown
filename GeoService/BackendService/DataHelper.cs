@@ -9,6 +9,7 @@ using System.Net.Http;
 using GeoCoordinatePortable;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 namespace BackendService
 {
@@ -29,9 +30,10 @@ namespace BackendService
 
            
             string responseString;
+            Users users = new Users();
 
-            //ToDo: Add exception handling 
-
+            try
+            {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(stream))
@@ -39,8 +41,13 @@ namespace BackendService
                     responseString = reader.ReadToEnd();
                 }
 
-            Users users = new Users();
-            users.users = JsonConvert.DeserializeObject<User[]>(responseString);                
+
+                users.users = JsonConvert.DeserializeObject<User[]>(responseString);
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine("Read data unsuccessful. Exception: " + e.Message);
+            }
 
             return users;
         }
@@ -65,11 +72,11 @@ namespace BackendService
                 }
             }
 
-            Response response = new Response();
-            response.users = new ResponseUser[2];
+            Users response = new Users();
+            response.users = new User[2];
 
-            response.users[0] = CreateResponse(allUsers.users[ids[0]], max);
-            response.users[1] = CreateResponse(allUsers.users[ids[1]], max);
+            response.users[0] = allUsers.users[ids[0]];
+            response.users[1] = allUsers.users[ids[1]];
 
             return JsonConvert.SerializeObject(response);
         }
@@ -87,16 +94,6 @@ namespace BackendService
             return new GeoCoordinate(lat1, lon1).GetDistanceTo(new GeoCoordinate(lat2, lon2));
         }
 
-        private static ResponseUser CreateResponse(User inputUser, double distance)
-        {
-            ResponseUser ru = new ResponseUser();
-            ru.name = inputUser.name;
-            ru.address = inputUser.address;
-            ru.companyName = inputUser.company.name;
-            ru.phone = inputUser.phone;
-            ru.distance = distance;
-
-            return ru;
-        }
+        
     }
 }
