@@ -60,7 +60,7 @@ namespace BackendService
             for(int u= 0; u < allUsers.users.Length; u++)//.users)
             {
                 Geo loc = allUsers.users[u].address.geo;
-                for(int i=0; i<allUsers.users.Length; i++)
+                for(int i=u+1; i<allUsers.users.Length; i++)
                 {
                     double dist = GetDistance(loc, allUsers.users[i].address.geo);
                     if(dist > max)

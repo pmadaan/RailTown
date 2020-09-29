@@ -17,6 +17,5 @@ namespace BackendService.Controllers
             Users users = DataHelper.ReadSource();
             return DataHelper.FindFarthest(users);
         }
-
     }
 }

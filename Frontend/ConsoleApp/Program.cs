@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Timers;
 
 namespace FrontendCode
@@ -14,26 +15,81 @@ namespace FrontendCode
 
         static void Main(string[] args)
         {
-            string s1 = onDemand();
-            Console.WriteLine(s1);
+            int key = -1;
+            while (true)
+            {
+                while (key < 0)
+                    key = ReadInput();
 
-            Console.WriteLine("Starting timed event");
-            timed();
+                switch (key)
+                {
+                    case 1:
+                        Console.WriteLine(onDemand());
+                        Console.ReadLine();
+                        break;
+
+                    case 2:
+                        timed();
+                        break;
+
+                    case 3: return;
+                }
+
+                key = ReadInput();
+            }
+
+        }
+
+        private static int ReadInput()
+        {
+            Console.Clear();
+            Console.WriteLine("Please select one (Enter your selection): ");
+            Console.WriteLine("1. One time execution");
+            Console.WriteLine("2. Repeated execution");
+            Console.WriteLine("3. Exit");
+
+            int response = int.Parse(Console.ReadLine());
+            if (response != 1 && response != 2 && response != 3)
+            {
+                Console.WriteLine("Invalid input");
+                return -1;
+            }
+
+            return response;
         }
 
        private static string onDemand()
         {
-           return  findFarthestUsers();
+            string result = findFarthestUsers();
+            //return result;
+
+            //Processing the result here for demonstration purposes
+            Response ru = JsonConvert.DeserializeObject<Response>(result);
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(string.Format("Farthest users: {0}, {1}", ru.users[0].name, ru.users[1].name));
+            sb.Append(string.Format("\nDistnace in meters: {0:0.00}", ru.users[0].distance));
+
+            return sb.ToString();
         }
 
         private static void timed()
         {
+             Console.WriteLine("Please enter time interval in minutes: ");
+            double minutes;
+
+            while (!double.TryParse(Console.ReadLine(), out minutes))
+            {
+                Console.WriteLine("Invalid input.");
+                Console.WriteLine("Please enter time interval in minutes: ");
+            }
+
             output = new StreamWriter("users.tsv");
             output.AutoFlush = true;
 
-            double milliseconds = TimeSpan.FromSeconds(30).TotalMilliseconds;
+            double milliseconds = TimeSpan.FromMinutes(minutes).TotalMilliseconds;
             SetTimer(milliseconds);
-            Console.WriteLine("press enter key to terminate");
+            Console.WriteLine("Executing every {0} minutes. Press enter key at any time to terminate", minutes);
             Console.ReadLine();
             timer.Stop();
             timer.Dispose();
