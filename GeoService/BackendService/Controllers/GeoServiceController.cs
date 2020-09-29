@@ -14,7 +14,10 @@ namespace BackendService.Controllers
         [HttpGet]
         public string GetFarthestUsers()
         {
+            //read data from the source
             Users users = DataHelper.ReadSource();
+
+            //find the users that are farthest from each other
             return DataHelper.FindFarthest(users);
         }
     }

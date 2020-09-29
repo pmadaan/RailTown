@@ -32,6 +32,7 @@ namespace BackendService
             string responseString;
             Users users = new Users();
 
+            //read data from the source using http request
             try
             {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -57,9 +58,12 @@ namespace BackendService
             double max = Double.MinValue;
             int[] ids = new int[2];
 
-            for(int u= 0; u < allUsers.users.Length; u++)//.users)
+            // loop on all users in the data 
+            for(int u= 0; u < allUsers.users.Length; u++)
             {
                 Geo loc = allUsers.users[u].address.geo;
+
+                //calculate distance with other users and extract max distance
                 for(int i=u+1; i<allUsers.users.Length; i++)
                 {
                     double dist = GetDistance(loc, allUsers.users[i].address.geo);
@@ -72,6 +76,7 @@ namespace BackendService
                 }
             }
 
+            //create the response object that has 2 users only
             Users response = new Users();
             response.users = new User[2];
 
@@ -83,6 +88,8 @@ namespace BackendService
 
         private static double GetDistance(Geo l1, Geo l2)
         {
+            //calculate distance based on geolocations
+
             double lat1 = double.Parse(l1.lat);
             double lon1 = double.Parse(l1.lng);
             double lat2 = double.Parse(l2.lat);

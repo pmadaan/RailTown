@@ -13,6 +13,7 @@ namespace FrontendCode
     {
         public static Users getdata()
         {
+            //backend service location
             string url = @"https://localhost:44394/geoservice";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
@@ -21,6 +22,7 @@ namespace FrontendCode
             string responseString;
             Users users = new Users();
 
+            //call backend service to fetch users that are farthest from each other
             try
             {
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -43,6 +45,7 @@ namespace FrontendCode
 
         public static string CreateResponse(Users users)
         {
+            //convert the response from backend service to the required output format 
             Response response = new Response();
             response.users = new ResponseUser[2];
 
@@ -56,6 +59,7 @@ namespace FrontendCode
 
         private static ResponseUser CreateResponse(User inputUser, double distance)
         {
+            //create instances of the response user which has only the data required in output
             ResponseUser ru = new ResponseUser();
 
             ru.name = inputUser?.name;
